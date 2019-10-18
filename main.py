@@ -20,6 +20,9 @@ def main():
     num_epochs = int(ch.config["model"]["num_epochs"])
     learning_rate = float(ch.config["model"]["learning_rate"])
     class_size = int(ch.config["model"]["class_size"])
+    char_filter_set = []
+    for char_filter in ch.config["cnn_model"]["char_filter_set"].split(';'):
+        char_filter_set.append(list(map(int, char_filter.split(','))))
 
     ########### 查看参数 ##########
     print("max_query_len_char:")
@@ -54,6 +57,9 @@ def main():
 
     print("class_size:")
     print(class_size)
+    
+    print("char_filter_set:")
+    print(char_filter_set)
 
 
 if __name__ == "__main__":
